@@ -1,0 +1,19 @@
+<project name="distro.build" default="build" basedir="./" xmlns:antcontrib="antlib:net.sf.antcontrib">
+
+	<loadproperties srcfile="build.properties"/>
+	<import file="${cfdistro.build.file}"/>
+
+	<target name="build" depends="cfdistro.build">
+		<dependency groupId="org.mxunit" artifactId="core" version="${mxunit.version}" mapping="/mxunit" />
+		<mapping physical="${basedir}/../tests" virtual="/tests"/>
+	</target>	
+
+	<target name="build.mvn">
+    <zip file="${dist.dir}/cfgdata.zip">
+      <fileset dir="${src.dir}/cfgdata" />
+    </zip>
+    <pom-and-deploy pomid="cfgdata.pom" packaging="zip" artifact="${dist.dir}/cfgdata.zip"
+       groupId="org.cfmlprojects" artifactId="cfgdata" version="1.0.0" name="cfgdata"/>
+	</target>	
+	
+</project>
