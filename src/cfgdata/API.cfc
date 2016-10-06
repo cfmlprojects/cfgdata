@@ -14,15 +14,21 @@ component {
 //    dm.materialize("com.google.api-client:google-api-client:1.19.0",depdir,false,["commons-codec:commons-codec","org.apache.httpcomponents:httpclient"]);
 //    dm.materialize("com.google.apis:google-api-services-plus:v1-rev223-1.20.0",depdir,false,["commons-codec:commons-codec","org.apache.httpcomponents:httpclient"]);
     dm.materialize("com.google.apis:google-api-services-oauth2:v2-rev92-1.20.0",depdir,false,["commons-codec:commons-codec","org.apache.httpcomponents:httpclient"]);
+    dm.materialize("com.google.apis:google-api-services-drive:v2-rev203-1.21.0",depdir,false,["commons-codec:commons-codec","org.apache.httpcomponents:httpclient"]);
     dm.materialize("net.sourceforge.htmlunit:htmlunit:2.17",depdir,false,ex);  // for unit tests
     javaloader = new cfgdata.dependency.javatools.LibraryLoader(id="gdata-classloader", pathlist=depdir, force=reload);
     gdata = new cfgdata.gdata(javaloader);
     sheetsAPI = new cfgdata.sheets.API(javaloader);
+    driveAPI = new cfgdata.drive.API(javaloader);
     return this;
   }
 
   function sheets(){
     return sheetsAPI;
+  }
+
+  function drive(){
+    return driveAPI;
   }
 
   function onMissingMethod( methodName, methodArguments ) {

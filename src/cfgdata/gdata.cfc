@@ -46,8 +46,10 @@ component {
 
     var page = webClient.getPage(authUrl);
     var userNameField = page.getElementByName("Email").setValueAttribute(user);
-    var passwordField = page.getElementByName("Passwd").setValueAttribute(password);
-    var signInButton = page.getElementByName("signIn");
+    var nextButton = page.getElementByName("signIn");
+    var passwordPage = nextButton.click();
+    var passwordField = passwordPage.getElementByName("Passwd").setValueAttribute(password);
+    var signInButton = passwordPage.getElementByName("signIn");
     var allowAccessPage = signInButton.click();
     var allowAccessButton = allowAccessPage.getElementById("submit_approve_access");
     webClient.waitForBackgroundJavaScript(1000);

@@ -13,7 +13,7 @@
       <fileset dir="${src.dir}/cfgdata" />
     </zip>
     <pom-and-deploy pomid="cfgdata.pom" packaging="zip" artifact="${dist.dir}/cfgdata.zip"
-       groupId="org.cfmlprojects" artifactId="cfgdata" version="1.0.0" name="cfgdata"/>
+       groupId="org.cfmlprojects" artifactId="cfgdata" version="1.2.0" name="cfgdata"/>
 	</target>	
 	
 </project>

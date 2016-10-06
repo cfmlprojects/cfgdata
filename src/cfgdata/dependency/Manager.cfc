@@ -133,7 +133,7 @@ component {
       }
       java = {
         Pattern : createObject("java","java.util.regex.Pattern")
-      }
+      };
         var p = java.Pattern.compile( "([^: ]+):([^: ]+)(:([^: ]*)(:([^: ]+))?)?:([^: ]+)" );
         var m = p.matcher( coords );
         if ( !m.matches() ){

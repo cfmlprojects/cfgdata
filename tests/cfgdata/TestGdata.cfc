@@ -10,8 +10,9 @@ component extends="mxunit.framework.TestCase" {
       clientId = creds.clientId;
       clientSecret = creds.clientSecret;
       redirectURI = "http://127.0.0.1:8088/oauth2callback";
-      scopes = ["https://www.googleapis.com/auth/userinfo.email","https://spreadsheets.google.com/feeds"];
       api = new cfgdata.API();
+      fileScope = api.drive().getScopes().DRIVE_FILE;
+      scopes = ["https://www.googleapis.com/auth/userinfo.email",fileScope,"https://spreadsheets.google.com/feeds"];
       credential = api.oauthAutoLogin(username,password,clientId,clientSecret,redirectURI,scopes);
       accessToken = credential.getAccessToken();
 /*
